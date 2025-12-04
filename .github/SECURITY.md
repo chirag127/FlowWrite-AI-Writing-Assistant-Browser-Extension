@@ -1,55 +1,39 @@
-# Security Policy for FlowWrite-AI-Writing-Assistant-Browser-Extension
+# Security Policy
 
-**Last Updated:** December 2025
+## Supported Versions
 
-## 1. Commitment to Security
+We are committed to maintaining a secure codebase. Currently, we focus our security efforts on the latest stable version of `FlowWrite-AI-Writing-Assistant-Browser-Extension`.
 
-At `chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension`, we are deeply committed to maintaining the security and integrity of our project. We take all security vulnerabilities seriously and will act diligently to address them.
+## Reporting a Vulnerability
 
-## 2. Vulnerability Reporting
+We welcome security disclosures from security researchers and ethical hackers. To report a security vulnerability, please use the GitHub Security Advisory feature or send an encrypted email to `chirag.dev@example.com` (if available, otherwise indicate preferred secure communication). We kindly ask that you do not disclose any vulnerability publicly until it has been addressed.
 
-We encourage you to report any security vulnerabilities you discover to us. We follow the standard GitHub security advisory process.
+When reporting a vulnerability, please provide the following information:
 
-### How to Report a Vulnerability
+*   **Vulnerability Type:** (e.g., XSS, CSRF, Authentication Bypass, etc.)
+*   **Affected Component:** (e.g., specific JavaScript file, browser extension API usage)
+*   **Steps to Reproduce:** Detailed, step-by-step instructions to trigger the vulnerability.
+*   **Proof of Concept (PoC):** If possible, include code snippets, screenshots, or a video demonstrating the vulnerability.
+*   **Impact Assessment:** Describe the potential impact of the vulnerability.
+*   **Recommended Mitigation:** Any suggestions for fixing the issue.
 
-1.  **Create a Security Advisory:** Please use GitHub's security advisory feature to report vulnerabilities. Navigate to the "Security" tab of the repository and select "New Advisory."
-2.  **Private Reporting:** If you are unable to create a security advisory, please send a detailed email to `[your-security-email@example.com]` (replace with actual contact if available, otherwise use GitHub advisory as primary).
-    *   **DO NOT** create a public GitHub Issue for security vulnerabilities.
-3.  **Provide Details:** In your report, please include:
-    *   A clear description of the vulnerability.
-    *   The affected version(s) of the project.
-    *   Steps to reproduce the vulnerability.
-    *   Any relevant proof-of-concept (PoC) code.
-    *   Your recommended mitigation or fix.
+We will acknowledge receipt of your vulnerability report within **48 hours** and will provide an estimated timeline for resolution.
 
-## 3. Our Response Process
+## Security Best Practices
 
-Once a vulnerability is reported, we will:
+*   **Browser Extension Security:** Developers must adhere to the latest security guidelines for browser extensions, including sanitizing all user inputs, restricting unnecessary permissions, and ensuring secure storage of sensitive data (if any).
+*   **AI Model Integration:** When interacting with AI models (Groq, Cerebras, Gemini), ensure that API keys are stored securely (e.g., via browser extension storage APIs or environment variables if applicable in development/build) and that input/output is validated to prevent prompt injection or data leakage.
+*   **Rate Limiting & Privacy:** Implement robust client-side checks and user notifications for API rate limits. Design all interactions with a privacy-first mindset, minimizing the data sent to external APIs.
+*   **Dependencies:** Regularly update dependencies using `uv` and `npm` (or equivalent JavaScript package manager) and scan for known vulnerabilities using tools like `npm audit` or Ruff's security checks.
 
-1.  **Acknowledge Receipt:** We will acknowledge your report within **72 hours**.
-2.  **Triage and Investigate:** Our team will prioritize and investigate the reported vulnerability.
-3.  **Remediation:** We will work diligently to develop and test a fix. We aim to release patches promptly.
-4.  **Disclosure:** Upon release of a fix, we will coordinate responsible disclosure. This typically involves:
-    *   Updating our security advisory on GitHub.
-    *   Announcing the fix through appropriate channels (e.g., release notes).
-    *   Giving credit to the reporter where appropriate and agreed upon.
+## Incident Response
 
-## 4. Scope
+Upon receiving a security report, the core development team will:
 
-This security policy applies to all code, documentation, and related assets within the `chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension` repository.
+1.  **Triage:** Assess the severity and impact of the reported vulnerability.
+2.  **Investigate:** Attempt to reproduce the vulnerability and identify the root cause.
+3.  **Mitigate:** Develop and test a fix for the vulnerability.
+4.  **Disclose:** Coordinate public disclosure with the reporter, ideally after a fix is available.
+5.  **Deploy:** Release a patched version of the browser extension.
 
-## 5. Supported Versions
-
-We actively maintain and support the latest stable version of the `FlowWrite-AI-Writing-Assistant-Browser-Extension`. Older versions may not receive timely security updates.
-
-## 6. Reporting Security Issues for Third-Party Dependencies
-
-This project, `FlowWrite-AI-Writing-Assistant-Browser-Extension`, relies on various third-party dependencies. We regularly scan for known vulnerabilities in these dependencies using tools integrated into our CI/CD pipeline. If you discover a vulnerability in a dependency that is not yet addressed, please report it via the channels mentioned above.
-
-## 7. Contribution
-
-We appreciate your efforts in making `FlowWrite-AI-Writing-Assistant-Browser-Extension` more secure. Thank you for your responsible disclosure.
-
---- 
-
-**Note:** This is a template. It is highly recommended to replace `[your-security-email@example.com]` with an actual, monitored security contact email address if one exists, or to rely solely on GitHub's built-in security advisory system for private reporting.
+Thank you for helping keep `FlowWrite-AI-Writing-Assistant-Browser-Extension` secure!
