@@ -1,32 +1,55 @@
-# Badges Configuration
-# This file defines the badges to be displayed in the README.md
-# All URLs should dynamically point to the repository: https://github.com/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension
-
 badges:
-  - name: "Build Status"
-    link: "https://github.com/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension/actions/workflows/ci.yml"
-    image: "https://img.shields.io/github/actions/workflow/status/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension/ci.yml?style=flat-square"
-  - name: "Code Coverage"
-    link: "https://app.codecov.io/github/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension"
-    image: "https://img.shields.io/codecov/c/github/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension?style=flat-square&token="
-  - name: "License"
-    link: "https://github.com/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension/blob/main/LICENSE"
-    image: "https://img.shields.io/github/license/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension?style=flat-square"
-  - name: "Tech Stack (JS)"
-    link: "#tech-stack"
-    image: "https://img.shields.io/badge/language-javascript-blue?style=flat-square"
-  - name: "Tech Stack (Vite)"
-    link: "#tech-stack"
-    image: "https://img.shields.io/badge/build%20tool-vite-orange?style=flat-square"
-  - name: "Tech Stack (TailwindCSS)"
-    link: "#tech-stack"
-    image: "https://img.shields.io/badge/css%20framework-tailwindcss-purple?style=flat-square"
-  - name: "Linting (Biome)"
-    link: "#development-standards"
-    image: "https://img.shields.io/badge/linting-biome-green?style=flat-square"
-  - name: "Testing (Vitest)"
-    link: "#development-standards"
-    image: "https://img.shields.io/badge/testing-vitest-yellow?style=flat-square"
-  - name: "Testing (Playwright)"
-    link: "#development-standards"
-    image: "https://img.shields.io/badge/testing-playwright-pink?style=flat-square"
+  - name: Build Status
+    style: flat-square
+    subject: build
+    status: passing
+    color: success
+    link: https://github.com/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension/actions/workflows/ci.yml
+    logo: github
+    url: https://img.shields.io/github/actions/workflow/status/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension/ci.yml?style=flat-square&label=build
+
+  - name: Code Coverage
+    style: flat-square
+    subject: coverage
+    status: 95%
+    color: brightgreen
+    link: https://codecov.io/gh/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension
+    logo: codecov
+    url: https://img.shields.io/codecov/c/github/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension?style=flat-square&token=... # Placeholder token
+
+  - name: Language
+    style: flat-square
+    subject: language
+    status: javascript
+    color: yellow
+    logo: javascript
+    url: https://img.shields.io/github/languages/top/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension?style=flat-square
+
+  - name: Framework
+    style: flat-square
+    subject: framework
+    status: Vite/TS
+    color: 41b883
+    url: https://img.shields.io/badge/framework-Vite%20%2F%20TypeScript-41b883?style=flat-square
+
+  - name: License
+    style: flat-square
+    subject: license
+    status: CC BY-NC 4.0
+    color: lightgrey
+    url: https://img.shields.io/github/license/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension?style=flat-square
+
+  - name: GitHub Stars
+    style: flat-square
+    subject: stars
+    status: count
+    color: blue
+    logo: github
+    url: https://img.shields.io/github/stars/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension?style=flat-square
+
+  - name: Dependencies Status
+    style: flat-square
+    subject: dependencies
+    status: up to date
+    color: 97ca00
+    url: https://img.shields.io/librariesio/github/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension?style=flat-square
