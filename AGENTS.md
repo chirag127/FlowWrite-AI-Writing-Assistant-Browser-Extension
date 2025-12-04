@@ -6,7 +6,7 @@
 **Output Standard:** Deliver **EXECUTION-ONLY** results. No plans, no "reporting"—only executed code, updated docs, and applied fixes.
 **Philosophy:** "Zero-Defect, High-Velocity, Future-Proof."
 
---- 
+---
 
 ## 2. INPUT PROCESSING & COGNITION
 *   **SPEECH-TO-TEXT INTERPRETATION PROTOCOL:**
@@ -19,62 +19,58 @@
     *   **Validation:** Use `docfork` to verify *every* external API signature.
     *   **Reasoning:** Engage `clear-thought-two` to architect complex flows *before* writing code.
 
---- 
+---
 
 ## 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
-**Directives:** Detect the project type and apply the corresponding **Apex Toolchain**.
+**Directives:** Detect the project type and apply the corresponding **Apex Toolchain**. This repository, `FlowWrite-AI-Writing-Assistant-Browser-Extension`, is a JavaScript/TypeScript-based browser extension.
 
-*   **PRIMARY SCENARIO: WEB / APP / EXTENSION (TypeScript/JavaScript)**
-    *   **Stack:** This project leverages **TypeScript 6.x (Strict Mode)** for enhanced type safety and maintainability. It utilizes **Vite 7 (Rolldown)** as the build tool for unparalleled speed. For native desktop packaging, **Tauri v2.x** is employed. For browser extensions, the **WXT (Web Extension Tooling)** framework is the standard. State management adheres to **Signals (Standardized)**.
-    *   **Linting & Formatting:** **Biome** is mandated for its exceptional speed and comprehensive code quality checks.
-    *   **Testing:** **Vitest** is the standard for unit and component testing due to its Jest compatibility and Vite integration. **Playwright** is employed for end-to-end (E2E) testing across multiple browsers.
-    *   **Architecture:** **Feature-Sliced Design (FSD)** is the mandatory architectural pattern for modularity and scalability.
-    *   **AI Integration:** If AI is leveraged, ensure all interactions with AI APIs (e.g., OpenAI, Anthropic, Cohere) are asynchronous, well-abstracted behind service layers, and include robust fallback and retry mechanisms. Prioritize efficient data serialization and prompt engineering for optimal performance and cost-effectiveness.
+*   **PRIMARY SCENARIO: WEB / APP / EXTENSION (TypeScript / JavaScript)**
+    *   **Stack:** This project leverages **TypeScript 6.x (Strict Mode)** and **JavaScript ES2025**. The build tooling is **Vite 7 (Rolldown)**, ideal for fast compilation and optimized builds for browser extensions. For native desktop integration, **Tauri v2.x** is recommended. For managing browser extension development specifically, **WXT (Web Extension Toolkit)** is the standard for unified cross-browser builds.
+    *   **State Management:** Adopt **Signals** as the standardized approach for reactive UI updates across the extension.
+    *   **Styling:** **Tailwind CSS v4** with a CSS-in-JS approach (or direct utility classes) for rapid, maintainable styling.
+    *   **Linting & Formatting:** **Biome** is the mandated tool for ultra-fast linting, formatting, and code analysis. Configure it strictly to enforce code quality.
+    *   **Testing:** **Vitest** for lightning-fast unit and component testing. **Playwright** for comprehensive end-to-end testing of the browser extension's user flows and interactions.
+    *   **Architecture:** Implement **Feature-Sliced Design (FSD)** principles adapted for browser extensions. Organize code into `features`, `entities`, `widgets`, `shared`, and `app` layers.
+    *   **AI Integration:** Seamless integration with AI providers (Groq, Cerebras, Gemini) via client-side APIs. Prioritize **privacy**, **rate-limit awareness**, and **secure handling of API keys** (e.g., using environment variables or secure storage within the extension context).
 
-*   **SECONDARY SCENARIO B: SYSTEMS / PERFORMANCE (Rust/Go) - *Not applicable for this project.***
+---
 
-*   **TERTIARY SCENARIO C: DATA / AI / SCRIPTS (Python) - *Not applicable for this project.***
+## 4. APEX DEVELOPMENT PRINCIPLES & WORKFLOWS
+*   **SOLIDITY & DRY:** Adhere strictly to the SOLID principles and the DRY (Don't Repeat Yourself) heuristic in all code. Abstract common functionalities into reusable modules and services.
+*   **YAGNI (You Ain't Gonna Need It):** Avoid premature optimization or adding features that are not immediately required. Focus on delivering core functionality with high quality.
+*   **CI/CD:** Integrate with GitHub Actions. A robust CI pipeline will automatically lint, test, and build the extension upon every push to the `main` branch. CD will handle automated release tagging and potential deployment workflows.
+*   **VERSION CONTROL:** Utilize Git. All commits must be atomic and follow the Conventional Commits specification (`feat:`, `fix:`, `chore:`, `refactor:`, `docs:`, `test:`).
+*   **SECURITY:** Treat API keys and sensitive data with utmost care. Implement client-side obfuscation and server-side validation where applicable. Regularly scan for vulnerabilities using automated tools.
 
---- 
-
-## 4. CORE DEVELOPMENT PRINCIPLES
-*   **SOLID:** Adhere strictly to the Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion principles.
-*   **DRY:** Avoid redundant code. Abstract common logic into reusable modules or functions.
-*   **YAGNI:** You Ain't Gonna Need It. Implement only what is currently required. Avoid speculative features.
-*   **KISS:** Keep It Simple, Stupid. Favor straightforward solutions over complex ones.
-*   **CI/CD:** All code committed must pass automated checks defined in `.github/workflows/ci.yml`.
-
---- 
+---
 
 ## 5. TESTING & VERIFICATION PROTOCOL
-*   **Unit Tests:** Write comprehensive unit tests for all new logic using **Vitest**. Aim for >85% code coverage.
-*   **E2E Tests:** Develop end-to-end tests using **Playwright** to simulate user interactions and validate critical workflows across different environments.
-*   **Linting & Formatting:** Execute `npx @biomejs/biome check --apply` and `npx @biomejs/biome format --write` before every commit.
-*   **Build Verification:** Run `npm run build` (or equivalent Vite/Tauri command) to ensure a successful production build.
+*   **Unit Testing:** Employ **Vitest** to cover individual functions, components, and utility modules. Aim for high unit test coverage (>90%).
+*   **Integration Testing:** Use **Vitest** to verify the interaction between different modules and services within the extension's architecture.
+*   **End-to-End (E2E) Testing:** Utilize **Playwright** to simulate user interactions across the browser extension's lifecycle, including installation, activation, API calls, and UI updates. Target critical user journeys.
+*   **Code Coverage:** Integrate **Codecov** (or similar) with CI to track and report code coverage metrics. Set strict coverage thresholds.
 
---- 
+---
 
-## 6. DOCUMENTATION & METADATA MANDATES
-*   **README.md:** The primary interface. Must be crystal clear, badge-rich, and include architectural diagrams and setup instructions.
-*   **AGENTS.md (This Document):** Defines the operational directives for AI agents interacting with this repository.
-*   **LICENSE:** Must be `CC BY-NC`.
-*   **CONTRIBUTING.md:** Clear guidelines for potential contributors.
-*   **ISSUE_TEMPLATE & PULL_REQUEST_TEMPLATE:** Standardized templates for issue reporting and pull requests.
-*   **SECURITY.md:** Outlines security policies and reporting mechanisms.
+## 6. AI AGENT INTERACTION GUIDELINES
+*   **API KEYS:** Never hardcode API keys. Utilize secure environment variable management (e.g., `.env` files for local development, GitHub Secrets for CI/CD) and leverage extension-specific storage mechanisms.
+*   **Rate Limiting:** Implement intelligent throttling and backoff strategies when interacting with AI APIs to respect rate limits and avoid service disruption.
+*   **Privacy:** Be acutely aware of data privacy. Process sensitive user data client-side where possible, and ensure compliance with all relevant privacy regulations.
+*   **Model Selection:** Default to the most performant and cost-effective AI models available for the task (e.g., `gemini-3-pro` if suitable). Allow for configuration of alternative models (Groq, Cerebras) as specified in the repository's configuration.
+*   **Error Handling:** Implement robust error handling for all AI API calls, providing clear feedback to the user and logging errors for debugging.
 
---- 
+---
 
-## 7. REPOSITORY METADATA STANDARDS (LATE 2025)
-*   **Repository Name:** `FlowWrite-AI-Writing-Assistant-Browser-Extension`
-*   **Repository Description:** AI-powered browser extension for real-time grammar, style, and clarity enhancement across all web content.
-*   **Topics:** `browser-extension`, `ai`, `writing-assistant`, `typescript`, `nlp`, `vite`, `tauri` (if applicable), `wxt`.
+## 7. REPOSITORY MANAGEMENT & ADMINISTRATION
+*   **License:** All code is licensed under **CC BY-NC 4.0**. Ensure license files are present and correctly referenced.
+*   **Contributing:** Maintain a clear `CONTRIBUTING.md` file outlining contribution guidelines, code style, and the pull request process.
+*   **Issue Tracking:** Use GitHub Issues with clear templates for bug reports and feature requests.
+*   **Security Reporting:** Provide a `SECURITY.md` file detailing how to report security vulnerabilities.
 
---- 
+---
 
-## 8. DYNAMIC LINKING PROTOCOL
-All internal and external links, including badge URLs, MUST point to the canonical repository URL: `https://github.com/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension`.
-
---- 
-
-## 9. EXECUTIVE SUMMARY
-This repository contains the **FlowWrite-AI-Writing-Assistant-Browser-Extension**, a sophisticated browser extension leveraging cutting-edge AI and TypeScript to provide real-time writing enhancement. It adheres to late 2025 Apex Technical Authority standards, emphasizing performance, scalability, and maintainability through Vite, WXT, and FSD architecture.
+## 8. DYNAMIC LINKS & REFERENCES
+*   **Repository Base URL:** `https://github.com/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension`
+*   **GitHub Actions Workflow:** `https://github.com/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension/actions/workflows/ci.yml`
+*   **Codecov Report:** `https://codecov.io/gh/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension`
+*   **License Link:** `https://github.com/chirag127/FlowWrite-AI-Writing-Assistant-Browser-Extension/blob/main/LICENSE`
