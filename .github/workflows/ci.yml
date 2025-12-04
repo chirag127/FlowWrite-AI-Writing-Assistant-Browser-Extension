@@ -1,0 +1,65 @@
+name: CI
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ '20.x' ]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Lint with Ruff (via ESLint adapter)
+        run: npm run lint
+        # Note: For JavaScript/TypeScript, Ruff can be used via an ESLint adapter. 
+        # Assuming 'lint' script in package.json is configured for this.
+        # If Ruff is not directly used for JS/TS, replace with a JS linter command (e.g., eslint).
+        # For this specific repo (JS browser extension), standard practice is ESLint or Biome.
+        # Following the 'base_agents_md_content' directive to adapt. Assume 'npm run lint' handles this.
+
+      - name: Build Extension
+        run: npm run build
+        env:
+          NODE_ENV: production
+          # Define any build-specific environment variables here if needed
+          # Example: VITE_API_URL: "https://api.example.com"
+          # For this repo, likely extension-specific build flags might be needed
+
+      - name: Run Unit Tests with Vitest
+        run: npm test
+        # Assuming 'test' script in package.json runs Vitest.
+
+      # Add E2E tests if applicable (e.g., using Playwright) - commented out for now if not explicitly defined in prompt
+      # - name: Install Playwright Browsers
+      #   run: npx playwright install
+      # - name: Run End-to-End Tests
+      #   run: npm run e2e
+      #   env:
+      #     CI: true
+
+      # Upload build artifacts (optional, but good practice for distribution)
+      # - name: Upload Build Artifacts
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: flowwrite-extension-build
+      #     path: dist/ # Adjust path based on your build output directory
